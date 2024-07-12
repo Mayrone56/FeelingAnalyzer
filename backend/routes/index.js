@@ -12,7 +12,8 @@ router.post('/analyze', (req, res) => {
     console.log("req.body", req.body)
     const result = sentiment.analyze(req.body.message);
     if (req.body.message && result) {
-        res.json({ result: true, message: result, score: result.score })
+        res.json({ result: true, message: result, score: result.score });
+        return;
     }
     res.json({ result: false })
 })
